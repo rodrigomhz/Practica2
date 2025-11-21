@@ -36,4 +36,8 @@ Realizaremos un script que automatiza el proceso de identificación y enumeraci�
        chmod +x script
     ````
 
+  Al ejecutar nuestro script, obtendremos mucha información:
+
+  Images/SalidaScript.jpg
+
 ## 2. Obtener las credenciales cifradas de un sistema Windows y otro Linux, analizar el algoritmo utilizado para cifrar dichas claves, y verificar las diferentes opciones para romperlo mediante el uso de Hashcat. Así mismo, el alumno deberá realizar la búsqueda de posibles diccionarios ya creados, así como Rainbow tables, y comprobar la diferencia y efectividad de ambos casos.
