@@ -87,6 +87,8 @@ PORT   STATE    SERVICE
 ...
 10/tcp filtered
 ````
+Cuando sale el estado como *"filtered"* significa que no se recibe respuesta directa del puerto, no sabiendo si está abierto (open) o cerrado (closed).
+
 Interpretación:
     . Los puertos 1–10 están filtrados.
     . Adobe bloquea la mayoría de puertos con firewall/CDN.
