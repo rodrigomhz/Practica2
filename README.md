@@ -165,4 +165,19 @@ De un forma sencilla, un hash es una forma de identificar un archivo. Es muy com
    ````
 
    ### Uso de hash-identifier
+   Esto es imprescindible, porque luego con hashcat debemos decir que hash se está utilizando:
+   
+   **Windows**
+   
+   ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/hashidWin.png)
+
+   **Linux**
+   
+   ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/hashidLin.png)
+
+   Pese a que diga que no lo encuentra, en principio este hash está utilizando el algoritmo SHA-512 con un salt aleatorio para mejorar la seguridad. Es un hash comúnmente utilizado en sistemas Linux para proteger las contraseñas de los usuarios.
+
+   ### 1) Uso de hashcat
+
+   
    
