@@ -119,3 +119,23 @@ MX (Mail Server — correo):
 
   
 ## 2. Obtener las credenciales cifradas de un sistema Windows y otro Linux, analizar el algoritmo utilizado para cifrar dichas claves, y verificar las diferentes opciones para romperlo mediante el uso de Hashcat. Así mismo, el alumno deberá realizar la búsqueda de posibles diccionarios ya creados, así como Rainbow tables, y comprobar la diferencia y efectividad de ambos casos.
+
+De un forma sencilla, un hash es una forma de identificar un archivo. Es muy común que muchas contraseñas vengan "hasheadas", es por eso que mediante el uso de diccionarios intentamos descifrar una contraseña hasheada.
+
+   ### 1) Identificar metodos de cifrado de Windows y Linux
+   Para poder identificar los metodos de cifrado de una clave existe una herramienta llamada *hasid* (que ya viene instalada por defecto en kali). Pero antes debemos obtener los hashes de Windows y Linux.
+
+   ## Windows
+   Haremos uso de la herramienta **Mimikatz**, teniendola que descargar (https://github.com/gentilkiwi/mimikatz/releases)
+   
+   1)Ejecutar Mimikatz como administrador:
+   
+   - Abre una ventana de CMD como administrador. 
+   - Navega hasta la carpeta donde tienes Mimikatz.
+   - Extraer los hashes:
+     Dentro de Mimikatz, ejecuta los siguientes comandos:
+     ````
+     privilege::debug
+     sekurlsa::logonpasswords
+     ````
+
