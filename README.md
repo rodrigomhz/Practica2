@@ -155,10 +155,12 @@ De un forma sencilla, un hash es una forma de identificar un archivo. Es muy com
      ## Linux
      En Linux, las contraseñas se guardan en el archivo /etc/shadow. Este archivo es donde se encuentran los hashes de las contraseñas cifradas.
      
-     1) Accedemos con:
-     ````
+     1 ) Accedemos con:
+        
+      ````      
      sudo cat /etc/shadow
-   	````
+      ````
+   
    Obtenemos el siguiente texto: 
    ````
    calvo:$y$j9T$Eq1ZJiOBuLw2dr464g5sh/$wnQR8oZYZlSwTf1/WXsAHo8mcOzPban/r21woFLZmm3:20352:0:99999:7:::
