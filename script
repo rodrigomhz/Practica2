@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# API key de IntelX
+API_KEY="b8b978df-8f08-46a5-8b89-db53b956a419"
+
+# Dominio a analizar
+dominio="adobe.com"
+
+# Redirigir todo a datos.txt
+exec > datos.txt 2>&1
+
+echo "Información WHOIS para $dominio"
+whois "$dominio"
+echo ""
+
+# Extraer correos del WHOIS (únicos)
+emails=$(whois "$dominio" | grep -oP '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b' | sort -u)
+
+if [ -z "$emails" ]; then
+  echo "No se encontraron correos en el WHOIS."
+else
+  echo "Correos encontrados en WHOIS:"
+  echo "$emails"
+  echo ""
+
+  # Comprobación de filtraciones para cada correo
+  for email in $emails; do
+    echo "Buscando filtraciones para: $email"
+
+    # Endpoint simple de IntelX (JSON válido)
+    response=$(curl -s "https://intelx.io/phonebook/search?k=$API_KEY&term=$email&maxresults=5")
+
+    # Verificar si la respuesta es JSON real
+    if echo "$response" | jq empty >/dev/null 2>&1; then
+      
+      # ¿Hay resultados?
+      if [[ $(echo "$response" | jq '.records | length') -gt 0 ]]; then
+        echo "🔴 Filtraciones encontradas para $email:"
+        echo "$response" | jq '.records[]'
+      else
+        echo "🟢 No hay filtraciones para $email"
+      fi
+
+    else
+      echo "⚠ ERROR: IntelX no devolvió JSON válido (posible límite o fallo temporal)"
+    fi
+
+    echo ""
+  done
+fi
+
+echo "Comprobando si $dominio está vivo..."
+ping -c 1 "$dominio"
+echo ""
+
+echo "Escaneo del top 10 puertos:"
+nmap -p 1-10 "$dominio"
+echo ""
+
+echo "Servidores NS:"
+dig +short NS "$dominio"
+echo ""
+
+echo "Servidores MX:"
+dig +short MX "$dominio"
+echo ""
