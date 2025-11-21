@@ -28,4 +28,9 @@ Realizaremos un script que automatiza el proceso de identificación y enumeraci�
 - **`ping`**: Para comprobar si el dominio está activo.
 - **`jq`**: Herramienta para procesar respuestas JSON de la API de IntelX. JQ nos permite procesar datos json, pudiendo en esta caso buscar la existencia de data.
 
+- **Hay que recordad la necesidad de darle permisos de ejecuación, podemos hacerl con el comando:**
+    ```
+       chmod +x script
+    ````
+
 ## 2. Obtener las credenciales cifradas de un sistema Windows y otro Linux, analizar el algoritmo utilizado para cifrar dichas claves, y verificar las diferentes opciones para romperlo mediante el uso de Hashcat. Así mismo, el alumno deberá realizar la búsqueda de posibles diccionarios ya creados, así como Rainbow tables, y comprobar la diferencia y efectividad de ambos casos.
