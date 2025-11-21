@@ -128,15 +128,34 @@ De un forma sencilla, un hash es una forma de identificar un archivo. Es muy com
    ## Windows
    Haremos uso de la herramienta **Mimikatz**, teniendola que descargar (https://github.com/gentilkiwi/mimikatz/releases)
    
-   1)Ejecutar Mimikatz como administrador:
+   1) Ejecutar Mimikatz como administrador:
    
    - Abre una ventana de CMD como administrador. 
    - Navega hasta la carpeta donde tienes Mimikatz.
-   - ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/consola.jpg)
+     
+       ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/consola.png)
+     
+      ````
+      cd x64
+      mimikatz.exe
+      ````
+      ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/mimikatz.png)
+     
    - Extraer los hashes:
-     Dentro de Mimikatz, ejecuta los siguientes comandos:
+     Dentro de Mimikatz, primero debes activar el modo de depuración para obtener privilegios. En la línea de comandos de Mimikatz, escribe:
      ````
      privilege::debug
+     ````
+     Y luego, ejecuta el siguiente comando para extraer los hashes de las contraseñas:
+     ````
      sekurlsa::logonpasswords
      ````
+     De aquí nos interesa es el hash NTLM, que en nuestro caso es: ```` 6A1058A7CC3F0B083F219462A076A768 ````
 
+     ## Linux
+     En Linux, las contraseñas se guardan en el archivo /etc/shadow. Este archivo es donde se encuentran los hashes de las contraseñas cifradas.
+     
+     1) Accedemos con:
+     ````
+     sudo cat /etc/shadow
+   	````
