@@ -159,3 +159,4 @@ De un forma sencilla, un hash es una forma de identificar un archivo. Es muy com
      ````
      sudo cat /etc/shadow
    	````
+   calvo:$y$j9T$Eq1ZJiOBuLw2dr464g5sh/$wnQR8oZYZlSwTf1/WXsAHo8mcOzPban/r21woFLZmm3:20352:0:99999:7:::
