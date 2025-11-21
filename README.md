@@ -123,7 +123,7 @@ MX (Mail Server — correo):
 De un forma sencilla, un hash es una forma de identificar un archivo. Es muy común que muchas contraseñas vengan "hasheadas", es por eso que mediante el uso de diccionarios intentamos descifrar una contraseña hasheada.
 
    ### 1) Identificar metodos de cifrado de Windows y Linux
-   Para poder identificar los metodos de cifrado de una clave existe una herramienta llamada *hasid* (que ya viene instalada por defecto en kali). Pero antes debemos obtener los hashes de Windows y Linux.
+   Para poder identificar los metodos de cifrado de una clave existe una herramienta llamada *hash-identifier* (que ya viene instalada por defecto en kali). Pero antes debemos obtener los hashes de Windows y Linux.
 
    ## Windows
    Haremos uso de la herramienta **Mimikatz**, teniendola que descargar (https://github.com/gentilkiwi/mimikatz/releases)
@@ -159,4 +159,10 @@ De un forma sencilla, un hash es una forma de identificar un archivo. Es muy com
      ````
      sudo cat /etc/shadow
    	````
+   Obtenemos el siguiente texto: 
+   ````
    calvo:$y$j9T$Eq1ZJiOBuLw2dr464g5sh/$wnQR8oZYZlSwTf1/WXsAHo8mcOzPban/r21woFLZmm3:20352:0:99999:7:::
+   ````
+
+   ### Uso de hash-identifier
+   
