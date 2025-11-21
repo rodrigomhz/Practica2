@@ -132,6 +132,7 @@ De un forma sencilla, un hash es una forma de identificar un archivo. Es muy com
    
    - Abre una ventana de CMD como administrador. 
    - Navega hasta la carpeta donde tienes Mimikatz.
+   - ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/consola.jpg)
    - Extraer los hashes:
      Dentro de Mimikatz, ejecuta los siguientes comandos:
      ````
