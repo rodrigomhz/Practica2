@@ -25,6 +25,9 @@ Realizaremos un script que automatiza el proceso de identificación y enumeraci�
 ## Detalles Importantes del Script
 
 - **`whois`**: Comando para obtener la información WHOIS del dominio.
+  
+  * Nos devolverá mucha información, como estados, nombres de servidor, advertencia, etc... . En esencia, nos devuelve un tocho enorme
+  
 - **`ping`**: Para comprobar si el dominio está activo.
 - **`jq`**: Herramienta para procesar respuestas JSON de la API de IntelX. JQ nos permite procesar datos json, pudiendo en esta caso buscar la existencia de data.
 
