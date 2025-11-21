@@ -14,7 +14,8 @@ whois "$dominio"
 echo ""
 
 # Extraer correos del WHOIS (únicos)
-emails=$(whois "$dominio" | grep -oP '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b' | sort -u)
+#grep -oP busca los correos, y con sort -u eliminados duplicados
+emails=$(whois "$dominio" | grep -oP '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,6}\b' | sort -u) 
 
 if [ -z "$emails" ]; then
   echo "No se encontraron correos en el WHOIS."
