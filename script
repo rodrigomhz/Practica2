@@ -35,14 +35,14 @@ else
       
       # ¿Hay resultados?
       if [[ $(echo "$response" | jq '.records | length') -gt 0 ]]; then
-        echo "🔴 Filtraciones encontradas para $email:"
+        echo "Filtraciones encontradas para $email:"
         echo "$response" | jq '.records[]'
       else
-        echo "🟢 No hay filtraciones para $email"
+        echo "No hay filtraciones para $email"
       fi
 
     else
-      echo "⚠ ERROR: IntelX no devolvió JSON válido (posible límite o fallo temporal)"
+      echo "ERROR: IntelX no devolvió JSON válido (posible límite o fallo temporal)"
     fi
 
     echo ""
