@@ -155,14 +155,70 @@ De un forma sencilla, un hash es una forma de identificar un archivo. Es muy com
      ## Linux
      En Linux, las contraseñas se guardan en el archivo /etc/shadow. Este archivo es donde se encuentran los hashes de las contraseñas cifradas.
      
-     1) Accedemos con:
-     ````
+     1 ) Accedemos con:
+        
+      ````      
      sudo cat /etc/shadow
-   	````
+      ````
+   
    Obtenemos el siguiente texto: 
    ````
    calvo:$y$j9T$Eq1ZJiOBuLw2dr464g5sh/$wnQR8oZYZlSwTf1/WXsAHo8mcOzPban/r21woFLZmm3:20352:0:99999:7:::
    ````
 
    ### Uso de hash-identifier
+   Esto es imprescindible, porque luego con hashcat debemos decir que hash se está utilizando:
+   
+   **Windows**
+   
+   ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/hashidWin.png)
+
+   **Linux**
+   
+   ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/hashidLin.png)
+
+   Pese a que diga que no lo encuentra, en principio este hash está utilizando el algoritmo SHA-512 con un salt aleatorio para mejorar la seguridad. Es un hash comúnmente utilizado en sistemas Linux para proteger las contraseñas de los usuarios.
+
+   ### 1) Uso de hashcat
+   Con man podemos ver que poner según el tipo de ataque que quiero utilizar.
+   ### Comando para Hashcat (Windows NTLM):
+   ````
+   hashcat -m 1000 -a 0 -o resultado.txt windows_hash.txt rockyou.txt
+   ````
+   ### Comando para Hashcat (para yescrypt)
+   ````
+   hashcat -m 18000 -a 0 -o resultado.txt linux_hash.txt rockyou.txt
+   ````
+
+   "Hashcat necesita mucha potencia para funcionar, por lo que puede dar error".
+
+   En caso de funcionar, nos devolverá: **hash:constraseñaHasheada**
+
+   Nosotros en este caso hemos usado un diccionario (rockyou), pero antes de terminar vamos a diferenciar los diccionarios de las rainbow tables para ver que nos vendría mejor según nuestro caso:
+
+   Diccionarios:
+   - Qué son: Listas de contraseñas comunes.
+   - Ventajas: Rápidos, fáciles de usar.
+   - Desventajas: Solo rompen contraseñas presentes en la lista.
+
+   Rainbow Tables:
+   - Qué son: Tablas precomputadas de hashes de contraseñas.
+   - Ventajas: Muy rápidos para hashes precomputados.
+   - Desventajas: Ocupan mucho espacio y solo funcionan para un tipo de hash específico.
+
+   Diferencia:
+
+   - Diccionarios son más flexibles, pero menos eficaces con contraseñas complejas.
+   
+   - Rainbow Tables son más rápidas, pero limitadas por el tipo de hash y su tamaño.
+
+
+
+   ## 3. Desarrollar el proceso completo de explotación sobre la máquina Windows 2008. El alumno deberá identificar todas las posibles vulnerabilidades para el acceso a la máquina, así como la elevación de       privilegios en la misma. 
+
+   https://liveutad-my.sharepoint.com/:u:/g/personal/eduardo_arriols_u-tad_com/EYaDZBfKhgZMoGo1YmAVZ-YBJYFJEKGVxor3xFjR64Vwkg?e=2xeXRI
+
+   Para el desarrollo de las pruebas sobre la máquina vulnerable, el alumno deberá crear una red NAT    virtualizada con la configuración 10.0.2.0/24.
+   
+   
    
