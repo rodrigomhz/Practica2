@@ -214,13 +214,13 @@ Diferencia:
 
 
 
-## 3. Desarrollar el proceso completo de explotación sobre la máquina Windows 2008. El alumno deberá identificar todas las posibles vulnerabilidades para el acceso a la máquina, así como la elevación de       privilegios en la misma. 
+## 3. Desarrollar el proceso completo de explotación sobre la máquina Windows 2008. El alumno deberá identificar todas las posibles vulnerabilidades para el acceso a la máquina, así como la elevación de privilegios en la misma. 
 
 https://liveutad-my.sharepoint.com/:u:/g/personal/eduardo_arriols_u-tad_com/EYaDZBfKhgZMoGo1YmAVZ-YBJYFJEKGVxor3xFjR64Vwkg?e=2xeXRI
 
 Para el desarrollo de las pruebas sobre la máquina vulnerable, el alumno deberá crear una red NAT virtualizada con la configuración 10.0.2.0/24.
 
-### 1)Configurar la red Nat en la 10.0.2.0
+### 1) Configurar la red Nat en la 10.0.2.0
 
 . Configuramos la red Nat en nuestro VirtualBox
 
@@ -241,6 +241,10 @@ En este caso lo que nos interesa interesa es el -O, que nos dice nuestro sistema
 Aquí vemos toda la info (incluida la IP) de la máquina windows.
 
 Ya con esto desde nuestra máquina atacante usaremos **nessus**, para poder encontar vulnerabilidades de la máquina (10.0.2.26).
+
+![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/Scan.png)
+
+![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/Resultado.png)
 
    
    
