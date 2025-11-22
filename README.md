@@ -234,8 +234,13 @@ Lo primero que hacemos es en nuestra máquina atacante es usar Nmap para encontr
 ````
 nmap -sS -sV -O 10.0.2.5/24 -T5
 ````
-En este caso lo que nos interesa interesa es el -O, que nos dice nuestro sistema operativo, y buscando el windows
+En este caso lo que nos interesa interesa es el -O, que nos dice nuestro sistema operativo, y buscando el windows.
 
-Ya con esto lo primero que hacemos desde nuestra máquina atacante es usar **nessus**, para poder encontar vulnerabilidades
+![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/Nmap.png)
+
+Aquí vemos toda la info (incluida la IP) de la máquina windows.
+
+Ya con esto desde nuestra máquina atacante usaremos **nessus**, para poder encontar vulnerabilidades de la máquina (10.0.2.26).
+
    
    
