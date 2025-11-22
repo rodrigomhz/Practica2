@@ -253,6 +253,8 @@ Tras el análisis obtenemos las diferentes vulnerabilidades del sistema reconoci
 ### 3) Metaexploit
 Aclarar que antes de está solución se intentó la vulnerabilidad del SQL de forma desfavorable, además de otras tantas que acabaron sin resultados.
 
+---
+
 ### **Explotación con EternalBlue y obtención de credenciales**
 
 Después de varios intentos fallidos con otras herramientas, decidimos utilizar el **exploit EternalBlue**, aprovechando la vulnerabilidad de **Microsoft SMBv1**. Aunque inicialmente pensamos que **Mimikatz** podría ser la solución, los resultados no fueron satisfactorios.
