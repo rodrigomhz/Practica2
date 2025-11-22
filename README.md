@@ -230,6 +230,8 @@ Para el desarrollo de las pruebas sobre la máquina vulnerable, el alumno deber�
 
 ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/NatConfig1.png)
 
+### 2) Escaneo de la Máquina
+
 Lo primero que hacemos es en nuestra máquina atacante es usar Nmap para encontrar la IP de nuestra máquina windows2008, es por ello que vamos a usar el siguiente comando:
 ````
 nmap -sS -sV -O 10.0.2.5/24 -T5
@@ -238,13 +240,60 @@ En este caso lo que nos interesa interesa es el -O, que nos dice nuestro sistema
 
 ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/Nmap.png)
 
-Aquí vemos toda la info (incluida la IP) de la máquina windows.
+Aquí vemos toda la info (incluida la **IP**) de la máquina windows.
 
-Ya con esto desde nuestra máquina atacante usaremos **nessus**, para poder encontar vulnerabilidades de la máquina (10.0.2.26).
+Ya con esto desde nuestra máquina atacante usaremos ***"nessus"***, para poder encontar vulnerabilidades de la máquina (**10.0.2.26**).
 
 ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/Scan.png)
 
+Tras el análisis obtenemos las diferentes vulnerabilidades del sistema reconocidas por nessus:
+
 ![Salida del script](https://github.com/rodrigomhz/Practica2/raw/main/Images/Resultado.png)
+
+### 3) Metaexploit
+Aclarar que antes de está solución se intentó la vulnerabilidad del SQL de forma desfavorable, además de otras tantas que acabaron sin resultados.
+
+### **Explotación con EternalBlue y obtención de credenciales**
+
+Después de varios intentos fallidos con otras herramientas, decidimos utilizar el **exploit EternalBlue**, aprovechando la vulnerabilidad de **Microsoft SMBv1**. Aunque inicialmente pensamos que **Mimikatz** podría ser la solución, los resultados no fueron satisfactorios.
+
+**Pruebas realizadas:**
+1. **Uso de Mimikatz**: Intentamos con **Mimikatz** para obtener credenciales, pero no conseguimos resultados. A pesar de obtener acceso al sistema, la herramienta no logró recuperar las contraseñas.
+   
+   ![Uso de Mimikatz](https://github.com/rodrigomhz/Practica2/raw/main/Images/mimikatz.png)
+
+2. **Uso de Hashdump**: Al final, utilizando **Meterpreter** y ejecutando el comando **hashdump**, obtuvimos el hash del usuario **administrador**.
+
+   ![Resultado de Hashdump](https://github.com/rodrigomhz/Practica2/raw/main/Images/hashdump.png)
+
+**Problemas encontrados:**
+- Mimikatz no proporcionó la información esperada, a pesar de que parecía ser la opción más directa.
+- No se pudieron extraer las contraseñas directamente con herramientas como **Mimikatz** debido a la falta de privilegios o configuraciones de seguridad.
+
+**Solución final:**
+La mejor opción resultó ser el uso de **hashdump** en **Meterpreter**, que permitió extraer el hash del **administrador**. Posteriormente, utilizamos **John the Ripper** para realizar un ataque de **diccionario** y descifrar el hash.
+
+   ![Contraseña obtenida con John the Ripper](https://github.com/rodrigomhz/Practica2/raw/main/Images/clave.png)
+
+**Conclusión:**
+Aunque **Mimikatz** parecía ser la herramienta más adecuada, la solución más efectiva fue usar **hashdump** y **John the Ripper** para recuperar la contraseña del **administrador**.
+
+---
+
+### **Imágenes:**
+
+1. **Exploit con EternalBlue**:
+   
+   ![Exploit EternalBlue](https://github.com/rodrigomhz/Practica2/raw/main/Images/use.png)
+
+2. **Acceso al escritorio tras el exploit**:
+   
+   ![Escritorio](https://github.com/rodrigomhz/Practica2/raw/main/Images/ecritorio.png)
+
+3. **Fin del proceso**:  
+   ![Fin](https://github.com/rodrigomhz/Practica2/raw/main/Images/fin.png)
+
+
 
    
    
