@@ -310,7 +310,8 @@ Aunque **Mimikatz** parecía ser la herramienta más adecuada, la solución más
    
    ![Escritorio](https://github.com/rodrigomhz/Practica2/raw/main/Images/ecritorio.png)
 
-3. **Fin del proceso**:  
+3. **Fin del proceso**:
+   
    ![Fin](https://github.com/rodrigomhz/Practica2/raw/main/Images/fin.png)
 
 
