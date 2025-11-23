@@ -1,6 +1,6 @@
 # Practica2
 
-## 1. Desarrollar un script que permita automatizar las siguientes acciones de cara a realizar el proceso de identificación y enumeración. El alumno podrá seleccionar el lenguaje de programación que quiera, y en la memoria se deberá describir el desarrollo realizado y un caso de uso con los resultados. La herramienta deberá desarrollar las siguientes acciones de forma automática a partir de un dominio dado:
+# 1. Desarrollar un script que permita automatizar las siguientes acciones de cara a realizar el proceso de identificación y enumeración. El alumno podrá seleccionar el lenguaje de programación que quiera, y en la memoria se deberá describir el desarrollo realizado y un caso de uso con los resultados. La herramienta deberá desarrollar las siguientes acciones de forma automática a partir de un dominio dado:
 
 Obtener whois del dominio proporcionado
 
@@ -57,9 +57,10 @@ Nosotros hemos escogido usar el dominio --> ````adobe.com````, y al obtener
  ````
  Interpretación:
 
-    . abuse@comlaude.com → correo del registrar (para abuso, fraude, DMCA…).
+ . abuse@comlaude.com → correo del registrar (para abuso, fraude, DMCA…).
 
-    . dns-admin@adobe.com → correo real interno de Adobe (equipo DNS/SecOps).
+ . dns-admin@adobe.com → correo real interno de Adobe (equipo DNS/SecOps).
+ 
 ## 2- Filtraciones en IntelX ##
 ````
 No hay filtraciones para abuse@comlaude.com
@@ -118,7 +119,7 @@ MX (Mail Server — correo):
 - La infraestructura DNS corre sobre Akamai (akam.net), mientras que los servidores MX están gestionados por Microsoft (Exchange Online Protection).
 
   
-## 2. Obtener las credenciales cifradas de un sistema Windows y otro Linux, analizar el algoritmo utilizado para cifrar dichas claves, y verificar las diferentes opciones para romperlo mediante el uso de Hashcat. Así mismo, el alumno deberá realizar la búsqueda de posibles diccionarios ya creados, así como Rainbow tables, y comprobar la diferencia y efectividad de ambos casos.
+# 2. Obtener las credenciales cifradas de un sistema Windows y otro Linux, analizar el algoritmo utilizado para cifrar dichas claves, y verificar las diferentes opciones para romperlo mediante el uso de Hashcat. Así mismo, el alumno deberá realizar la búsqueda de posibles diccionarios ya creados, así como Rainbow tables, y comprobar la diferencia y efectividad de ambos casos.
 
 De un forma sencilla, un hash es una forma de identificar un archivo. Es muy común que muchas contraseñas vengan "hasheadas", es por eso que mediante el uso de diccionarios intentamos descifrar una contraseña hasheada.
 
@@ -231,7 +232,7 @@ secretsdump.py -sam sam.save -system system.save LOCAL
 * Quiero aclarar que esta herramienta y hashdump en meterpreter (meterpreter es un troyano que me permite hacer funcinalidades al que puedo tirarle funcionalidades), va a volcar los hashes para poder descifrarlos con herramientas como jonh the ripper o hashcat.
 
 
-## 3. Desarrollar el proceso completo de explotación sobre la máquina Windows 2008. El alumno deberá identificar todas las posibles vulnerabilidades para el acceso a la máquina, así como la elevación de privilegios en la misma. 
+# 3. Desarrollar el proceso completo de explotación sobre la máquina Windows 2008. El alumno deberá identificar todas las posibles vulnerabilidades para el acceso a la máquina, así como la elevación de privilegios en la misma. 
 
 https://liveutad-my.sharepoint.com/:u:/g/personal/eduardo_arriols_u-tad_com/EYaDZBfKhgZMoGo1YmAVZ-YBJYFJEKGVxor3xFjR64Vwkg?e=2xeXRI
 
